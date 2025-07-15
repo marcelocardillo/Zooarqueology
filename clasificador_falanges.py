@@ -83,3 +83,4 @@ if st.button("Calcular clasificación"):
     - Si LD1 > umbral → **Trasera (T)**
     - Si LD1 == umbral → **No diferenciada (ND)**
     """)
+    st.write("Contacto: Dr. Marcelo Cardillo. marcelo.cardillo@gmail.com")
