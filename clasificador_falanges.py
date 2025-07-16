@@ -33,13 +33,13 @@ coeficientes = {
 }
 
 # Función para calcular el valor discriminante
-def calcular_ld1(region, bp04, bfp05, dp08, dfp07):
+def calcular_FD(region, bp04, bfp05, dp08, dfp07):
     coefs = coeficientes[region]
-    ld1 = (coefs["BP04"] * bp04 +
+    FD = (coefs["BP04"] * bp04 +
            coefs["BFp05"] * bfp05 +
            coefs["Dp08"] * dp08 +
            coefs["DFp07"] * dfp07)
-    return ld1, coefs["umbral"]
+    return FD, coefs["umbral"]
 
 # Interfaz
 st.title("Clasificación de falanges de camélidos")
@@ -55,20 +55,20 @@ with col2:
     bfp05 = st.number_input("BFp05 (mm)", value=0.0)
     dfp07 = st.number_input("DFp07 (mm)", value=0.0)
 
-if st.button("Calcular clasificación"):
-    ld1, umbral = calcular_ld1(region, bp04, bfp05, dp08, dfp07)
+if st.button("Clasificar"):
+    ld1, umbral = calcular_FD(region, bp04, bfp05, dp08, dfp07)
 
     # Clasificación
-    if ld1 < umbral:
+    if FD < umbral:
         clasificacion = "Delantera (D)"
-    elif ld1 > umbral:
+    elif FD > umbral:
         clasificacion = "Trasera (T)"
     else:
         clasificacion = "No diferenciada (ND)"
 
     # Resultado
     st.markdown(f"### Resultado")
-    st.write(f"**LD1 = {ld1:.2f}**")
+    st.write(f"**FD = {FD:.2f}**")
     st.write(f"**Umbral de corte para {region}: {umbral}**")
     st.write(f"**Clasificación: {clasificacion}**")
 
@@ -76,12 +76,12 @@ if st.button("Calcular clasificación"):
     st.markdown("---")
     st.markdown("#### Explicación")
     st.markdown(f"""
-    El valor calculado de la función discriminante (LD1) se compara con el umbral de separación
+    El valor calculado por la función discriminante (FD) se compara con el umbral de separación
     entre falanges delanteras y traseras para la región seleccionada.
 
-    - Si LD1 < umbral → **Delantera (D)**
-    - Si LD1 > umbral → **Trasera (T)**
-    - Si LD1 == umbral → **No diferenciada (ND)**
+    - Si FD < umbral → **Delantera (D)**
+    - Si FD > umbral → **Trasera (T)**
+    - Si FD == umbral → **No diferenciada (ND)**
     """)
     st.write("Fuente:Hernández,H; Cardillo, M y Lorena, G. L´Heureux.2025.INDICE DE POSICION ANATOMICA DE LAS FALANGES DE CAMELIDOS SUDAMERICANOS. UNA VIEJA (NUEVA) DISCUSION. Contacto: Dr. Marcelo Cardillo. marcelo.cardillo@gmail.com")
  
