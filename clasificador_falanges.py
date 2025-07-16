@@ -56,7 +56,7 @@ with col2:
     dfp07 = st.number_input("DFp07 (mm)", value=0.0)
 
 if st.button("Clasificar"):
-    ld1, umbral = calcular_FD(region, bp04, bfp05, dp08, dfp07)
+    FD, umbral = calcular_FD(region, bp04, bfp05, dp08, dfp07)
 
     # Clasificación
     if FD < umbral:
