@@ -83,5 +83,5 @@ if st.button("Calcular clasificación"):
     - Si LD1 > umbral → **Trasera (T)**
     - Si LD1 == umbral → **No diferenciada (ND)**
     """)
-    st.write("Fuente:Hernández,H; Cardillo, M y Lorena, G. L’Heureux.2025
-INDICE DE POSICION ANATOMICA DE LAS FALANGES DE CAMELIDOS SUDAMERICANOS. UNA VIEJA (NUEVA) DISCUSION. Contacto: Dr. Marcelo Cardillo. marcelo.cardillo@gmail.com")
+    st.write("Fuente:Hernández,H; Cardillo, M y Lorena, G. L´Heureux.2025.INDICE DE POSICION ANATOMICA DE LAS FALANGES DE CAMELIDOS SUDAMERICANOS. UNA VIEJA (NUEVA) DISCUSION. Contacto: Dr. Marcelo Cardillo. marcelo.cardillo@gmail.com")
+ 
