@@ -43,7 +43,7 @@ def calcular_FD(region, bp04, bfp05, dp08, dfp07):
 
 # Interfaz
 st.title("Clasificación de falanges de camélidos")
-st.markdown("Ingrese las medidas métricas y seleccione la región para obtener la clasificación de la falange.")
+st.markdown("Ingrese las medidas métricas y seleccione la región para obtener la clasificación de la falange.Ingrese las medidas de la epífisis proximal de las primeras falanges (sensu Von denDriesh 1976; Kent 1982): Bp= ancho máximo de la epífisis proximal; BFp= ancho máximo de la faceta articular; Dp= profundidad máxima de la epífisis, diámetro anteroposterior; DFp= profundidad máxima de la faceta articular. Seleccione la especie (Lama glama; Lama guanicoe) y, en el caso de los guanacos, su región de procedencia para obtener la clasificación de la falange en delantera o trasera.")
 
 region = st.selectbox("Seleccione la región / especie", list(coeficientes.keys()))
 
@@ -83,5 +83,4 @@ if st.button("Clasificar"):
     - Si FD > umbral → **Trasera (T)**
     - Si FD == umbral → **No diferenciada (ND)**
     """)
-    st.write("Fuente:Hernández,H; Cardillo, M y Lorena, G. L´Heureux.2025.INDICE DE POSICION ANATOMICA DE LAS FALANGES DE CAMELIDOS SUDAMERICANOS. UNA VIEJA (NUEVA) DISCUSION. Contacto: Dr. Marcelo Cardillo. marcelo.cardillo@gmail.com")
- 
+    st.write("Fuente:Hernández,H; Cardillo, M y Lorena, G. L´Heureux.2025.INDICE DE POSICION ANATOMICA DE LAS FALANGES DE CAMELIDOS SUDAMERICANOS. UNA VIEJA (NUEVA) DISCUSION. Contacto: Dr. Marcelo Cardillo. marcelo.cardillo@gmail.com. Bibliografía citada: Kent, J. (1982). The Domestication and Exploitation of the South America Camelids: Methods of Analysis and their Application to Circum-Lacustrine Archaeological Sites in Bolivia and Peru. Tesis Doctoral inédita, Washington University, St. Louis. Von den Driesch, A. (1976). A Guide to the Measurement of Animal Bones from Archaeological Sites. Peabody Museum of Archaeology and Ethnology, Bulletin I,Universidad de Harvard. USA.")
