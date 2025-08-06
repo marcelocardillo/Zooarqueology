@@ -3,42 +3,42 @@ import streamlit as st
 # Diccionario con coeficientes por región
 coeficientes = {
     "Lama glama": {
-        "BP04": -0.6541918,
-        "BFp05": 0.5418537,
-        "Dp08": -0.7494701,
-        "DFp07": -0.5538084,
+        "BP": -0.6541918,
+        "BFp": 0.5418537,
+        "Dp": -0.7494701,
+        "DFp": -0.5538084,
         "umbral": -27.23
     },
     "Lama guanicoe NOA": {
-        "BP04": 0.36807501,
-        "BFp05": -0.08692864,
-        "Dp08": -1.17219650,
-        "DFp07": -0.63132924,
+        "BP": 0.36807501,
+        "BFp": -0.08692864,
+        "Dp": -1.17219650,
+        "DFp": -0.63132924,
         "umbral": -28.33
     },
     "Lama guanicoe Norpatagonia": {
-        "BP04": -0.2095383,
-        "BFp05": 0.0279237,
-        "Dp08": 0.1569139,
-        "DFp07": -1.4109877,
+        "BP": -0.2095383,
+        "BFp": 0.0279237,
+        "Dp": 0.1569139,
+        "DFp": -1.4109877,
         "umbral": -28.27
     },
     "Lama guanicoe Patagonia Austral": {
-        "BP04": 0.6295074,
-        "BFp05": -0.2799106,
-        "Dp08": 0.1728613,
-        "DFp07": -1.6661510,
+        "BP": 0.6295074,
+        "BFp": -0.2799106,
+        "Dp": 0.1728613,
+        "DFp": -1.6661510,
         "umbral": -21.54
     }
 }
 
 # Función para calcular el valor discriminante
-def calcular_FD(region, bp04, bfp05, dp08, dfp07):
+def calcular_FD(region, bp, bfp, dp, dfp):
     coefs = coeficientes[region]
-    FD = (coefs["BP04"] * bp04 +
-           coefs["BFp05"] * bfp05 +
-           coefs["Dp08"] * dp08 +
-           coefs["DFp07"] * dfp07)
+    FD = (coefs["BP"] * bp +
+           coefs["BFp"] * bfp +
+           coefs["Dp"] * dp +
+           coefs["DFp"] * dfp)
     return FD, coefs["umbral"]
 
 # Interfaz
@@ -49,14 +49,14 @@ region = st.selectbox("Seleccione la región / especie", list(coeficientes.keys(
 
 col1, col2 = st.columns(2)
 with col1:
-    bp04 = st.number_input("BP04 (mm)", value=0.0)
-    dp08 = st.number_input("Dp08 (mm)", value=0.0)
+    bp = st.number_input("BP (mm)", value=0.0)
+    dp = st.number_input("Dp (mm)", value=0.0)
 with col2:
-    bfp05 = st.number_input("BFp05 (mm)", value=0.0)
-    dfp07 = st.number_input("DFp07 (mm)", value=0.0)
+    bfp = st.number_input("BFp (mm)", value=0.0)
+    dfp = st.number_input("DFp (mm)", value=0.0)
 
 if st.button("Clasificar"):
-    FD, umbral = calcular_FD(region, bp04, bfp05, dp08, dfp07)
+    FD, umbral = calcular_FD(region, bp, bfp, dp, dfp)
 
     # Clasificación
     if FD < umbral:
@@ -84,3 +84,4 @@ if st.button("Clasificar"):
     - Si FD == umbral → **No diferenciada (ND)**
     """)
     st.write("Fuente:Hernández,H; Cardillo, M y Lorena, G. L´Heureux.2025.INDICE DE POSICION ANATOMICA DE LAS FALANGES DE CAMELIDOS SUDAMERICANOS. UNA VIEJA (NUEVA) DISCUSION. Contacto: Dr. Marcelo Cardillo. marcelo.cardillo@gmail.com. Bibliografía citada: Kent, J. (1982). The Domestication and Exploitation of the South America Camelids: Methods of Analysis and their Application to Circum-Lacustrine Archaeological Sites in Bolivia and Peru. Tesis Doctoral inédita, Washington University, St. Louis. Von den Driesch, A. (1976). A Guide to the Measurement of Animal Bones from Archaeological Sites. Peabody Museum of Archaeology and Ethnology, Bulletin I,Universidad de Harvard. USA.")
+
